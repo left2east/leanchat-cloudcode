@@ -11,6 +11,13 @@ var msgTypeLocation = -5;
 function messageReceived(req, res) {
   res.success();
   console.log('receive success');
+  var p = new AV.Promise();
+  muser.findUserById(params.fromPeer).then(function (user) {
+    var msg = getPushMessage(params, user);
+    p.resolve({pushMessage: msg});
+  }, mutil.rejectFn(p));
+  console.log(msg);
+  return p;
   //console.log(req.params);
 }
 
@@ -59,6 +66,7 @@ function receiversOffline(req, res) {
     _receiversOffLine(req.params).then(function (result) {
       res.success(result);
     }, function (error) {
+      console.log('error offline');
       console.log(error.message);
       res.success();
     });
