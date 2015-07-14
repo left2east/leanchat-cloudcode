@@ -15,14 +15,14 @@ function messageReceived(req, res) {
   params = req.params;
   console.log('params:');
   console.log(params);
-  var msg = getPushMessage(params, user);
+  var msg = getPushMessage(params);
   p.resolve({pushMessage: msg});
   console.log(msg);
   return p;
   //console.log(req.params);
 }
 
-function getPushMessage(params, user) {
+function getPushMessage(params) {
   var contentStr = params.content;
   var json = {
     badge: "Increment",
@@ -32,7 +32,7 @@ function getPushMessage(params, user) {
   console.log(contentStr);
   var msg = JSON.parse(contentStr);
   var msgDesc = getMsgDesc(msg);
-  var name = user.get('username');
+  var name = "Zhou Zhi";
   json.alert = name + ' : ' + msgDesc;
   return JSON.stringify(json);
 }
