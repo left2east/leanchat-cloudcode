@@ -10,8 +10,8 @@ var msgTypeLocation = -5;
 
 function messageReceived(req, res) {
   res.success();
-  consotl.log("receive success");
-  console.log(req.params);
+  consotl.log('receive success');
+  //console.log(req.params);
 }
 
 function getPushMessage(params, user) {
@@ -19,8 +19,9 @@ function getPushMessage(params, user) {
   var json = {
     badge: "Increment",
     sound: "default"
-    //,"_profile": "dev"
+    ,"_profile": "dev"
   };
+  console.log(contentStr);
   var msg = JSON.parse(contentStr);
   var msgDesc = getMsgDesc(msg);
   var name = user.get('username');
