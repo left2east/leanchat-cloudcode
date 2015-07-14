@@ -10,7 +10,7 @@ var msgTypeLocation = -5;
 
 function messageReceived(req, res) {
   res.success();
-  consotl.log('receive success');
+  console.log('receive success');
   //console.log(req.params);
 }
 
