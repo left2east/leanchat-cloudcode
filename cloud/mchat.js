@@ -12,6 +12,7 @@ function messageReceived(req, res) {
   res.success();
   console.log('receive success');
   var p = new AV.Promise();
+  params = req.params;
   muser.findUserById(params.fromPeer).then(function (user) {
     var msg = getPushMessage(params, user);
     p.resolve({pushMessage: msg});
