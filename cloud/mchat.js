@@ -17,6 +17,7 @@ function messageReceived(req, res) {
   console.log(params);
   var msg = getPushMessage(params);
   p.resolve({pushMessage: msg});
+  console.log('msg:');
   console.log(msg);
   return p;
   //console.log(req.params);
@@ -27,7 +28,7 @@ function getPushMessage(params) {
   var json = {
     badge: "Increment",
     sound: "default"
-    ,"_profile": "dev"
+    //,"_profile": "dev"
   };
   console.log(contentStr);
   var msg = JSON.parse(contentStr);
