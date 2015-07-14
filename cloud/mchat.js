@@ -10,6 +10,7 @@ var msgTypeLocation = -5;
 
 function messageReceived(req, res) {
   res.success();
+  console.log(req.params);
 }
 
 function getPushMessage(params, user) {
